@@ -1,5 +1,4 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
     public static void main(String[] args) {
         // Q:- store a roll number
@@ -17,5 +16,18 @@ public class Main {
 
         int[] ros; //declaration of array..ros is getting defined in the stack
         ros = new int[5]; // initialisation of array...here object is being created in the memory(heap)
+
+        System.out.println(ros[1]); //prints 0 as no value assigned
+
+        String[] arr = new String[5];
+        System.out.println(arr[0]); //prints null.. null is a type of special literal
     }
 }
+
+// Important pointers:-
+// in java , array objects are in heap (not just array but all objects)
+// we know, heap objects are not continuous in java
+// Dynamic Memory Allocation at runtime
+// Hence, array objects in java , may not be continuous
+// NEW keyword :- it is used to create an object
+// primitive objects are stored in stack memory
