@@ -24,5 +24,15 @@ public class SearchIn2DArray {
         return new int[]{-1 , -1};
     }
 
-    stat
+    static int max(int[][] arr) {
+        int max = Integer.MIN_VALUE;
+        for (int[] ints : arr) {
+            for (int element : ints) {
+                if (element > max) {
+                    max = element;
+                }
+            }
+        }
+        return max;
+    }
 }
