@@ -8,6 +8,8 @@ public class RowColMatrix {
                        {33 , 34 , 38 , 50}};
         System.out.println (Arrays.toString((Search(arr,37))));
     }
+
+    //using int[] datatype as we wish to return two values(index of row and col) but by default , java allows to return only one value, hence, we wrap it inside an array
     static int[] Search(int[][] matrix , int target) {
         int r = 0;
         int c = matrix.length - 1;
