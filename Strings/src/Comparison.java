@@ -1,4 +1,4 @@
-import org.w3c.dom.ls.LSOutput;
+package src;
 
 public class Comparison {
     public static void main(String[] args) {
