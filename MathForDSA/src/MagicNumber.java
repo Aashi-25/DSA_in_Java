@@ -1,6 +1,6 @@
 public class MagicNumber {
     public static void main(String[] args) {
-        int n = 2;
+        int n = 3;
         int magic = 0;
         int base = 5;
         while(n > 0){
