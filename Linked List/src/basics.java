@@ -1,3 +1,18 @@
+class Node{
+    int data;
+    Node next;
+
+    Node(int data1 , Node next1){
+        this.data = data1;
+        this.next = next1;
+    }
+
+    Node(int data1){
+        this.data = data1;
+        this.next = null;
+    }
+};
+
 public class basics {
     public static void main(String[] args) {
         int[] arr = {2 , 3 , 5 , 6};
@@ -12,6 +27,30 @@ public class basics {
         while(temp != null){
             System.out.print(temp.data + " ");
             temp = temp.next;
+        }
+
+        //calling deletion of head fn
+        head = removesHead(head);
+        System.out.println("head after deleting current head is :- " + head.data);
+
+        //calling deletion of tail fn
+        head = removesTail(head);
+        System.out.println("tail after deleting current tail is :- " + head.data);
+
+        //calling deletion of kth element fn
+        head = removeK(head , 2);
+        Node temp1 = head;
+        while(temp1 != null){
+            System.out.print(temp1.data + " ");
+            temp1 = temp1.next;
+        }
+
+        //calling deletion of given val
+        head = removeEl(head , 3);
+        Node temp2 = head;
+        while(temp2 != null){
+            System.out.print(temp2.data + " ");
+            temp2 = temp2.next;
         }
     }
 
@@ -40,24 +79,75 @@ public class basics {
         Node temp = head;
         while (temp != null){
             if(temp.data == val) return 1;
+            temp = temp.next;
         }
         return 0;
     }
+
+    //delete head
+    static Node removesHead(Node head){
+        if(head == null){
+            return head;
+        }
+        head = head.next;
+        return head;
+    }
+
+    //delete tail
+    static Node removesTail(Node head){
+        if(head == null || head.next == null){
+            return null;
+        }
+        Node temp = head;
+        while(temp.next.next != null){
+            temp = temp.next;
+        }
+        temp.next = null;
+        return head;
+    }
+
+    //deleting kth element
+    static Node removeK(Node head , int k){
+        if(head==null) return null;
+        if(k == 1){
+            Node temp = head;
+            head = head.next;
+            return head;
+        }
+        int count = 0;
+        Node temp = head;
+        Node prev = null;
+        while(temp != null){
+            count++;
+            if(count == k){
+                prev.next = prev.next.next;
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
+    //deleting given val
+    static Node removeEl(Node head , int val) {
+        if (head == null) return null;
+        if (val == head.data) {
+            Node temp = head;
+            head = head.next;
+            return head;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            if(temp.next.data == val){
+                temp.next = temp.next.next;
+                break;
+            }
+            temp = temp.next;
+        }
+        return head;
+    }
 }
-class Node{
-    int data;
-    Node next;
 
-    Node(int data1 , Node next1){
-        this.data = data1;
-        this.next = next1;
-    }
-
-    Node(int data1){
-        this.data = data1;
-        this.next = null;
-    }
-};
 
 
 
