@@ -52,6 +52,27 @@ public class basics {
             System.out.print(temp2.data + " ");
             temp2 = temp2.next;
         }
+
+        //insert at head
+        head = insertAtHead(head , 100);
+        System.out.println(head.data);
+
+        //insert at given index
+        head = insertAtindex(head , 200 , 1);
+        Node temp3 = head;
+        while(temp3 != null){
+            System.out.print(temp3.data + " ");
+            temp3 = temp3.next;
+        }
+
+        //inset before given value
+        head = InsertBefElement(head , 200 , 50);
+        Node temp4 = head;
+        while(temp4 != null){
+            System.out.print(temp4.data + " ");
+            temp4 = temp4.next;
+        }
+
     }
 
     static Node convertArr2LL(int[] arr){
@@ -140,6 +161,58 @@ public class basics {
         while (temp.next != null) {
             if(temp.next.data == val){
                 temp.next = temp.next.next;
+                break;
+            }
+            temp = temp.next;
+        }
+        return head;
+    }
+
+    //insert at head
+    static Node insertAtHead(Node head , int val){
+        Node temp = new Node(100 , head);
+        return temp;
+    }
+
+    //insert at given index
+    static Node insertAtindex(Node head , int val , int idx){
+        if(head == null) {
+            if (idx == 1) {
+                return new Node(val);
+            } else {
+                return null;
+            }
+        }
+        if(idx == 1){
+            return new Node(val , head);
+        }
+        Node temp = head;
+        int count = 0;
+        while(temp != null){
+            count++;
+            if(count == idx-1){
+                Node x = new Node(val , temp.next);
+                temp.next = x;
+                break;
+            }
+            temp = temp.next;
+        }
+        return head;
+    }
+
+    //insert element before given value -> x is the value to be inserted before val
+    static Node InsertBefElement(Node head , int val , int x){
+        if(head == null){
+            return null;
+        }
+        if(head.data == val){
+            return new Node(x , head);
+        }
+        Node temp = head;
+        while(temp.next != null){
+            if(temp.next.data == val){
+                Node newNode = new Node(x , temp.next);
+                temp.next = newNode;
                 break;
             }
             temp = temp.next;
